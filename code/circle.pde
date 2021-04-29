@@ -22,6 +22,12 @@ class Circle{
       fb = 1;
     }
     b += fb * random(0,1);
+    
+    float h = hue(c);
+    float s = saturation(c);
+    float b = brightness(c);
+    h = (h + 1)% 360;
+    c = color(h,s,b);
   }
   
   void show(){
