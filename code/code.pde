@@ -7,15 +7,16 @@ void setup() {
   noFill();
 
   circles.add(new Circle(0, 0, 50, color(255)));
-
+  
   while (offset < 500) {
-    float r = random(0, 30);
-    float rad = random(-PI, PI);
-    float x = sin(rad) * offset;
-    float y = cos(-rad) * offset;
+    float r = random(10, 100);
+    float rad = random(0,100);
+    float x = sin(2 * PI / rad) * 200;
+    float y = cos(2 * PI / rad) * 200;
     boolean hit = false;
-
-    offset += 0.1;
+    
+    offset += 0.5;
+    println(r);
 
     for (Circle c : circles) {
       if (c.in_circle(x, y, r)) {
@@ -24,8 +25,10 @@ void setup() {
       }
     }
     if (hit) continue;
+    
+    offset += 0.5;
 
-    circles.add(new Circle(25 + x, 25 + y, r, color(255)));
+    circles.add(new Circle(x, y, r, color(255)));
   }
 }
 
