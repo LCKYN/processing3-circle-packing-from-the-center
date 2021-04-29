@@ -19,7 +19,7 @@ void setup() {
     offset += log(offset) / 1000;
 
     for (Circle c : circles) {
-      if (c.in_circle(x, y, r + 1)) {
+      if (c.in_circle(x, y, r)) {
         hit = true;
         break;
       }

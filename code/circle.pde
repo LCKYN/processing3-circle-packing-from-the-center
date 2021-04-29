@@ -17,11 +17,11 @@ class Circle{
   
   void breathe(){
     if(b > 5){
-      fb = -random(0,1);
+      fb = -1;
     }else if(b < -5){
-      fb = random(0,1);
+      fb = 1;
     }
-    b += fb;
+    b += fb * random(0,1);
   }
   
   void show(){
