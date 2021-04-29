@@ -9,7 +9,7 @@ class Circle{
   }
   
   boolean in_circle(float x_,float y_,float r_){
-    return dist(x, x_, y, y_) > (s + r_);
+    return dist(x, y, x_, y_) > s/2 + r_;
   }
   
   void show(){

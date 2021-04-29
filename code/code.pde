@@ -11,11 +11,11 @@ void setup() {
   while (offset < 500) {
     float r = random(10, 100);
     float rad = random(0,100);
-    float x = sin(2 * PI / rad) * 200;
-    float y = cos(2 * PI / rad) * 200;
+    float x = sin(2 * PI * rad / 100) * 200;
+    float y = -cos(2 * PI * rad / 100) * 200;
     boolean hit = false;
     
-    offset += 0.5;
+    offset += 100;
     println(r);
 
     for (Circle c : circles) {
@@ -26,9 +26,17 @@ void setup() {
     }
     if (hit) continue;
     
-    offset += 0.5;
+    offset += 100;
 
     circles.add(new Circle(x, y, r, color(255)));
+  }
+  
+  for (int i = 0; i < 100; i++) {
+    float x = sin(2 * PI * i/ 100 ) * 200;
+    float y = -cos(2 * PI * i / 100) * 200;
+    float r = random(10, 100);
+    
+     circles.add(new Circle(x, y, r, color(255)));
   }
 }
 
@@ -39,4 +47,13 @@ void draw() {
   for (int i = 0; i < count; i++) {
     circles.get(i).show();
   }
+  
+  boolean temp = false;
+  for (Circle c : circles) {
+      if (c.in_circle(mouseX - width/2, mouseY - height / 2, 1)) {
+        temp = true;
+        break;
+      }
+    }
+   println(frameCount + " : " +temp);
 }
